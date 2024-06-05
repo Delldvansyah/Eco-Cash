@@ -1,6 +1,5 @@
-
 		<?php
-		include 'C:/xampp/htdocs/bank-sampah-main/system/config/koneksi.php';
+		include 'C:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
 		if(isset($_POST['login'])){
 			$user = mysqli_real_escape_string($conn, $_POST['user']);
 			$pass = mysqli_real_escape_string($conn, $_POST['pass']);

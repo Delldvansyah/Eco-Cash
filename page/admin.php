@@ -4,7 +4,7 @@ if (empty($_SESSION['user']) && empty($_SESSION['pass'])) {
     header('location:login.php');
 } else {   
 error_reporting(E_ALL | E_STRICT); 
-include_once("C:/xampp/htdocs/bank-sampah-main/system/config/koneksi.php");
+include_once("C:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +12,10 @@ include_once("C:/xampp/htdocs/bank-sampah-main/system/config/koneksi.php");
 	<head>
 		<meta charset="UTF-8">
 		<title>Admin</title>
-		<link rel="stylesheet" href="C:/xampp/htdocs/bank-sampah-main/asset/internal/css/style_2.css">
+		<link rel="stylesheet" href="C:/xampp/htdocs/Eco-Cash/asset/internal/css/style_2.css">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="shortcut icon" href="C:/xampp/htdocs/bank-sampah-main/asset/internal/img/img-local/favicon.ico">
+		<link rel="shortcut icon" href="C:/xampp/htdocs/Eco-Cash/asset/internal/img/img-local/favicon.ico">
 		<style>
 		  button{
           height: 27px;
@@ -80,62 +80,62 @@ include_once("C:/xampp/htdocs/bank-sampah-main/system/config/koneksi.php");
 						$page = $_GET['page'];
 					switch ($page) {
 						case 'data-admin':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/view-admin.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/view-admin.php";
 							break;
 						case 'tambah-data-admin':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/tambah-admin.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/tambah-admin.php";
 							break;
 						case 'data-admin-full':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/view-admin-full.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/view-admin-full.php";
 							break;
 						case 'edit-admin-id':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/edit-admin-id.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/edit-admin-id.php";
 							break;
 						case 'edit-admin':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/edit-admin.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/edit-admin.php";
 							break;
 						case 'edit-sampah':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/edit-sampah.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/edit-sampah.php";
 							break;
 						case 'data-nasabah-full':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/view-nasabah-full.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/view-nasabah-full.php";
 							break;
 						case 'edit-nasabah-id':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/edit-nasabah-id.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/edit-nasabah-id.php";
 							break;
 						case 'tambah-data-nasabah':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/tambah-nasabah.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/tambah-nasabah.php";
 							break;
 						case 'data-sampah':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/view-sampah.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/view-sampah.php";
 							break;
 						case 'tambah-data-setor':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/tambah-setor.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/tambah-setor.php";
 							break;
 						case 'edit-setor':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/edit-setor.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/edit-setor.php";
 							break;
 						case 'tambah-data-tarik':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/tambah-tarik.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/tambah-tarik.php";
 							break;
 						case 'data-setor':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/view-setor.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/view-setor.php";
 							break;
 						case 'data-tarik':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/view-tarik.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/view-tarik.php";
 							break;
 						case 'data-report':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/view-report.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/view-report.php";
 							break;
 						case 'tambah-data-sampah':
-							include "C:/xampp/htdocs/bank-sampah-main/system/function/tambah-sampah.php";
+							include "C:/xampp/htdocs/Eco-Cash/system/function/tambah-sampah.php";
 							break;			
 						default:
 							echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
 							break;
 					}
 				}else{
-					include "C:/xampp/htdocs/bank-sampah-main/system/function/view-admin.php";
+					include "C:/xampp/htdocs/Eco-Cash/system/function/view-admin.php";
 				}
 				 ?>
 			</section>
