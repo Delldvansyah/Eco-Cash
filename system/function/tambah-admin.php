@@ -1,6 +1,6 @@
 <?php
 
- require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
+ require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
 
     $no = mysqli_query($conn, "SELECT nia FROM admin ORDER BY nia DESC");
     $nia = mysqli_fetch_array($no);
