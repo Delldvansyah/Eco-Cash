@@ -22,7 +22,7 @@
         ";
 
         echo "<meta http-equiv='refresh'
-              content='0; url=http://localhost/bsk09/page/admin.php?page=data-sampah'>";
+              content='0; url=http://localhost/ecocash/page/admin.php?page=data-sampah'>";
   }else{
     echo "
         <script>
@@ -31,7 +31,7 @@
         ";
 
         echo "<meta http-equiv='refresh'
-              content='0; url=http://localhost/bsk09/page/admin.php?page=data-sampah'>";
+              content='0; url=http://localhost/ecocash/page/admin.php?page=data-sampah'>";
   }
  }
  ?>
