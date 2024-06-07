@@ -1,5 +1,5 @@
 <?php
-  require_once("E:/xampp/htdocs/Eco-Cash/system/system/config/koneksi.php");
+  require_once("http://localhost/Eco-Cash/system/system/config/koneksi.php");
 
  if (isset($_POST['simpan'])) {
   $nama = $_POST['nama'];
