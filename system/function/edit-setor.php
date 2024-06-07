@@ -12,7 +12,7 @@
   $query = "UPDATE nasabah SET nama = '$nama', alamat = '$alamat', telepon = '$telepon', username = '$username', password = '$password' WHERE nin='".$id."' ";
   $queryact = mysqli_query($conn, $query);
   echo "<meta http-equiv='refresh'
-   content='0; url=http://localhost/bsk09/page/admin.php?page=data-nasabah-full'>";
+   content='0; url=http://localhost/ecocash/page/admin.php?page=data-nasabah-full'>";
  }
 
 ?>
