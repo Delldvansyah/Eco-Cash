@@ -3,17 +3,17 @@ session_start();
 if (empty($_SESSION['user_n']) && empty($_SESSION['pass_n'])) {header('location:login.php');} 
 else {   
 error_reporting(E_ALL | E_STRICT); 
-include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
+include_once("http://localhost/Eco-Cash/system/config/koneksi.php");
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Nasabah</title>
-		<link rel="stylesheet" href="E:/xampp/htdocs/Eco-Cash/asset/internal/css/style_2.css">
+		<link rel="stylesheet" href="http://localhost/Eco-Cash/asset/internal/css/style_2.css">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="shortcut icon" href="E:/xampp/htdocs/Eco-Cash/asset/internal/img/img-local/favicon.ico">
+		<link rel="shortcut icon" href="http://localhost/Eco-Cash/asset/internal/img/img-local/favicon.ico">
 		<style>
 		  button{
           height: 27px;
@@ -64,29 +64,29 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
 
 					switch ($page) {
 						case 'data-nasabah':
-							include "E:/xampp/htdocs/Eco-Cash/system/config/view-nasabah.php";
+							include "http://localhost/Eco-Cash/system/config/view-nasabah.php";
 							break;
 						case 'data-sampah-n':
-							include "E:/xampp/htdocs/Eco-Cash/system/config/view-sampah_n.php";
+							include "http://localhost/Eco-Cash/system/config/view-sampah_n.php";
 							break;
 						case 'histori-setor':
-							include "E:/xampp/htdocs/Eco-Cash/system/config/histori-setor.php";
+							include "http://localhost/Eco-Cash/system/config/histori-setor.php";
 							break;
 						case 'histori-tarik':
-							include "E:/xampp/htdocs/Eco-Cash/system/config/histori-tarik.php";
+							include "http://localhost/Eco-Cash/system/config/histori-tarik.php";
 							break;
 						case 'data-report':
-							include "E:/xampp/htdocs/Eco-Cash/system/config/view-report-n.php";
+							include "http://localhost/Eco-Cash/system/config/view-report-n.php";
 							break;
 						case 'edit-nasabah':
-							include "E:/xampp/htdocs/Eco-Cash/system/config/edit-nasabah.php";
+							include "http://localhost/Eco-Cash/system/config/edit-nasabah.php";
 							break;			
 						default:
 							echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
 							break;
 					}
 				}else{
-					include "E:/xampp/htdocs/Eco-Cash/system/config/view-nasabah.php";
+					include "http://localhost/Eco-Cash/system/config/view-nasabah.php";
 				}
 
 				 ?>
