@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="E:/xampp/htdocs/Eco-Cash/datatables/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/Eco-Cash/datatables/css/jquery.dataTables.css">
     <style>
         label{
         font-family: Montserrat;    
@@ -59,7 +59,7 @@
                 <button><i class="fa fa-pencil"></i>edit</button> 
                 </a>
 
-                <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="E:/xampp/htdocs/Eco-Cash/system/function/delete-admin.php?id=<?php echo $row['nia']; ?>">
+                <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="http://localhost/Eco-Cash/system/function/delete-admin.php?id=<?php echo $row['nia']; ?>">
                 <button><i class="fa fa-trash-o"></i>hapus</button>
                 </a>
                 
@@ -75,16 +75,16 @@
     <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
     </a>
 
-    <a target="_blank" href="E:/xampp/htdocs/Eco-Cash/system/function/excel-admin.php">
+    <a target="_blank" href="http://localhost/Eco-Cash/system/function/excel-admin.php">
     <button><i class="fa fa-print" aria-hidden="true"></i>Excel</button>
     </a>
 
-    <a target="_blank" href="E:/xampp/htdocs/Eco-Cash/system/function/print-admin.php">
+    <a target="_blank" href="http://localhost/Eco-Cash/system/function/print-admin.php">
     <button><i class="fa fa-print" aria-hidden="true"></i>Cetak</button>
     </a>
     
-    <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/datatables/js/jquery.min.js"></script>
-    <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
            $('#example').DataTable();
