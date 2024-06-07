@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="E:/xampp/htdocs/Eco-Cash/datatables/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="http://localhost/Eco-Cash/datatables/css/jquery.dataTables.css">
 	<style>
 		label{
         font-family: Montserrat;    
@@ -62,7 +62,7 @@
                 <button><i class="fa fa-pencil"></i>edit</button> 
                 </a>
 
-                <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="E:/xampp/htdocs/Eco-Cash/system/function/delete-tarik.php?id=<?php echo $row['id_tarik']; ?>">
+                <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="http://localhost/Eco-Cash/system/function/delete-tarik.php?id=<?php echo $row['id_tarik']; ?>">
                 <button><i class="fa fa-trash-o"></i>hapus</button>
                 </a>
 
@@ -78,16 +78,16 @@
     <button><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
     </a>
 
-    <a target="_blank" href="E:/xampp/htdocs/Eco-Cash/system/function/excel-tarik.php">
+    <a target="_blank" href="http://localhost/Eco-Cash/system/function/excel-tarik.php">
     <button><i class="fa fa-print" aria-hidden="true"></i>Excel</button>
     </a>
 
-    <a target="_blank" href="E:/xampp/htdocs/Eco-Cash/system/function/print-tarik.php">
+    <a target="_blank" href="http://localhost/Eco-Cash/system/function/print-tarik.php">
     <button><i class="fa fa-print" aria-hidden="true"></i>Cetak</button>
     </a>
     
-    <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/datatables/js/jquery.min.js"></script>
-    <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.dataTables.min.js"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
     <script>
