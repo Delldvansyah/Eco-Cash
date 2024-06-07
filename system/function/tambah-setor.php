@@ -1,6 +1,6 @@
 <?php
  if (isset($_POST['simpan'])) {
-  require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
+  require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
   $tanggal_setor = $_POST['tanggal_setor'];
   $nin = $_POST['nin'];
   $jenis_sampah = $_POST['jenis_sampah'];
@@ -23,10 +23,10 @@
 <html>
 <head>
   <title>Homepage</title>
-	<script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/css/jquery.datepick.css"> 
-	<script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/js/jquery.plugin.js"></script> 
-	<script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/js/jquery.datepick.js"></script>
+	<script type="text/javascript" src="http://localhost/Eco-Cash/asset/plugin/datepicker/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://localhost/Eco-Cash/asset/plugin/datepicker/css/jquery.datepick.css"> 
+	<script type="text/javascript" src="http://localhost/Eco-Cash/asset/plugin/datepicker/js/jquery.plugin.js"></script> 
+	<script type="text/javascript" src="http://localhost/Eco-Cash/asset/plugin/datepicker/js/jquery.datepick.js"></script>
 	
 
 
@@ -282,3 +282,4 @@ function cek_data() {
 	
 </body>
 </html>
+
