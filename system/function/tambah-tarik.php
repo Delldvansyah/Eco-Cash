@@ -10,7 +10,7 @@
   if($saldo<$jumlah_tarik){echo "<script>alert('Maaf saldomu kurang!')</script>";
 
   echo "<meta http-equiv='refresh'
-   content='0; url=http://localhost/bsk09/page/admin.php?page=data-nasabah-full'>";
+   content='0; url=http://localhost/ecocash/page/admin.php?page=data-nasabah-full'>";
 
  }
   else {echo "<script>alert('Berhasil melakukan transaksi tarik!!')</script>";
@@ -19,7 +19,7 @@
   $queryact = mysqli_query($conn, $query);
   
   echo "<meta http-equiv='refresh'
-   content='0; url=http://localhost/bsk09/page/admin.php?page=tambah-data-tarik'>";
+   content='0; url=http://localhost/ecocash/page/admin.php?page=tambah-data-tarik'>";
 }
 
   exit();
@@ -187,4 +187,3 @@ $(document).ready(function() {
 	</script>
 </body>
 </html>
-
