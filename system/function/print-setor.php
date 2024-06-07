@@ -59,7 +59,7 @@
 
 <?php
 // Load file koneksi.php
-require_once ('E:/xampp/htdocs/Eco-Cash/config/koneksi.php');
+require_once ('http://localhost/Eco-Cash/config/koneksi.php');
  
 $query = "SELECT * FROM setor"; 
 $sql = mysqli_query($conn, $query); 
@@ -92,7 +92,7 @@ $row = mysqli_num_rows($sql);
 $html = ob_get_contents();
 ob_end_clean();
         
-require_once("E:/xampp/htdocs/Eco-Cash/asset/plugin/html2pdf/html2pdf.class.php");
+require_once("http://localhost/Eco-Cash/asset/plugin/html2pdf/html2pdf.class.php");
 $pdf = new HTML2PDF('P','A4','en');
 $pdf->WriteHTML($html);
 $filename = "Data-Setor-(".date('d-m-Y').").pdf";
