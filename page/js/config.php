@@ -2,7 +2,7 @@
 $DB_host = "localhost";
 $DB_user = "root";
 $DB_pass = "";
-$DB_name = "bsk09";
+$DB_name = "ecocash";
 
 try
 {
