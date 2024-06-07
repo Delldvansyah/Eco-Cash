@@ -3,8 +3,8 @@
 
 <div id="container"></div>
 
-<script src="E:/xampp/htdocs/Eco-Cash/asset/plugin/chart/js/highcharts.js"></script>
-<script src="E:/xampp/htdocs/Eco-Cash/asset/plugin/chart/js/exporting.js"></script>
+<script src="http://localhost/Eco-Cash/asset/plugin/chart/js/highcharts.js"></script>
+<script src="http://localhost/Eco-Cash/asset/plugin/chart/js/exporting.js"></script>
 <script type="text/javascript">
 	Highcharts.chart('container', {
     chart: {
