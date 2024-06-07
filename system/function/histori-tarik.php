@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="E:/xampp/htdocs/Eco-Cash/datatables/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/Eco-Cash/datatables/css/jquery.dataTables.css">
     <style>
         label{
         font-family: Montserrat;    
@@ -56,12 +56,12 @@
     <br>
     <br>
     
-    <a target="_blank" href="E:/xampp/htdocs/Eco-Cash/system/function/print-histori-tarik.php">
+    <a target="_blank" href="http://localhost/Eco-Cash/system/function/print-histori-tarik.php">
     <button><i class="fa fa-print" aria-hidden="true"></i>Cetak</button>
     </a>
 
-    <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/datatables/js/jquery.min.js"></script>
-    <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
            $('#example').DataTable();
