@@ -1,5 +1,5 @@
 <?php
-  require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
+  require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
 
  if (isset($_POST['simpan'])) {
   $id = $_POST['id'];
@@ -20,10 +20,10 @@
 <html>
 <head>
 
-  <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/css/jquery.datepick.css"> 
-  <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/js/jquery.plugin.js"></script> 
-  <script type="text/javascript" src="E:/xampp/htdocs/Eco-Cash/asset/plugin/datepicker/js/jquery.datepick.js"></script>
+  <script type="text/javascript" src="http://localhost/Eco-Cash/asset/plugin/datepicker/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://localhost/Eco-Cash/asset/plugin/datepicker/css/jquery.datepick.css"> 
+  <script type="text/javascript" src="http://localhost/Eco-Cash/asset/plugin/datepicker/js/jquery.plugin.js"></script> 
+  <script type="text/javascript" src="http://localhost/Eco-Cash/asset/plugin/datepicker/js/jquery.datepick.js"></script>
 
   
   <!--link datatables-->
