@@ -1,13 +1,13 @@
 
 <?php
  if (isset($_POST['simpan'])) {
-  require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
+  require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
   $jenis_sampah = $_POST['jenis_sampah'];
   $satuan = $_POST['satuan'];
   $harga = $_POST['harga'];
   $nama_file = $_FILES['gambar']['name'];
   $source = $_FILES['gambar']['tmp_name'];
-  $folder = 'E:/xampp/htdocs/Eco-Cash/asset/internal/img/uploads/';
+  $folder = 'http://localhost/Eco-Cash/asset/internal/img/uploads/';
   $deskripsi = $_POST['deskripsi'];
 
   move_uploaded_file($source, $folder.$nama_file);
