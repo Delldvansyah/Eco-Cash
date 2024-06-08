@@ -1,6 +1,6 @@
 <?php
  if (isset($_POST['simpan'])) {
-  require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
+  require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
   $tanggal_tarik = $_POST['tanggal_tarik'];
   $nin = $_POST['nin'];
   $saldo = $_POST['saldo'];
@@ -10,7 +10,7 @@
   if($saldo<$jumlah_tarik){echo "<script>alert('Maaf saldomu kurang!')</script>";
 
   echo "<meta http-equiv='refresh'
-   content='0; url=http://localhost/ecocash/page/admin.php?page=data-nasabah-full'>";
+   content='0; url=http://localhost/Eco-Cash/page/admin.php?page=data-nasabah-full'>";
 
  }
   else {echo "<script>alert('Berhasil melakukan transaksi tarik!!')</script>";
@@ -19,7 +19,7 @@
   $queryact = mysqli_query($conn, $query);
   
   echo "<meta http-equiv='refresh'
-   content='0; url=http://localhost/ecocash/page/admin.php?page=tambah-data-tarik'>";
+   content='0; url=http://localhost/Eco-Cash/page/admin.php?page=tambah-data-tarik'>";
 }
 
   exit();

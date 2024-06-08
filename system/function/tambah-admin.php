@@ -1,6 +1,6 @@
 <?php
 
- require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
+ require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
 
     $no = mysqli_query($conn, "SELECT nia FROM admin ORDER BY nia DESC");
     $nia = mysqli_fetch_array($no);
@@ -33,7 +33,7 @@
               </script>";
 
               echo "<meta http-equiv='refresh'
-              content='0; url=http://localhost/ecocash/page/admin.php?page=data-admin-full'>";
+              content='0; url=http://localhost/Eco-Cash/page/admin.php?page=data-admin-full'>";
 
               return FALSE;      
       }
@@ -45,7 +45,7 @@
               </script>";
 
       echo "<meta http-equiv='refresh'
-      content='0; url=http://localhost/ecocash/page/admin.php?page=data-admin-full'>";
+      content='0; url=http://localhost/Eco-Cash/page/admin.php?page=data-admin-full'>";
     }
  ?>
 

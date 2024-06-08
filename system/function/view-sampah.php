@@ -42,7 +42,7 @@
         <tbody>
         <?php
             // Pastikan untuk menyertakan file koneksi database Anda di sini
-            include 'http://localhost/Eco-Cash/system/config/koneksi.php'; // pastikan nama file koneksi benar
+            include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php'; // pastikan nama file koneksi benar
 
             $no = 0;
             $query = mysqli_query($conn, "SELECT * FROM sampah ORDER BY jenis_sampah ASC");

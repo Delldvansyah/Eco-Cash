@@ -12,10 +12,10 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
 	<head>
 		<meta charset="UTF-8">
 		<title>Admin</title>
-		<link rel="stylesheet" href="E:/xampp/htdocs/Eco-Cash/asset/internal/css/style_2.css">
+		<link rel="stylesheet" href="http://localhost/Eco-Cash/asset/internal/css/style_2.css">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway:700" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="shortcut icon" href="E:/xampp/htdocs/Eco-Cash/asset/internal/img/img-local/favicon.ico">
+		<link rel="shortcut icon" href="http://localhost/htdocs/Eco-Cash/asset/internal/img/img-local/favicon.ico">
 		<style>
 		  button{
           height: 27px;

@@ -1,5 +1,5 @@
 <?php 
-require_once ('http://localhost/Eco-Cash/config/koneksi.php');
+require_once ('E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php');
 
 // Fungsi header dengan mengirimkan raw data excel
 header("Content-type: application/vnd-ms-excel");

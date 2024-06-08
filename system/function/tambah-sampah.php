@@ -1,13 +1,13 @@
 
 <?php
  if (isset($_POST['simpan'])) {
-  require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
+  require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
   $jenis_sampah = $_POST['jenis_sampah'];
   $satuan = $_POST['satuan'];
   $harga = $_POST['harga'];
   $nama_file = $_FILES['gambar']['name'];
   $source = $_FILES['gambar']['tmp_name'];
-  $folder = 'http://localhost/Eco-Cash/asset/internal/img/uploads/';
+  $folder = 'E:/xampp/htdocs/Eco-Cash/asset/internal/img/uploads/';
   $deskripsi = $_POST['deskripsi'];
 
   move_uploaded_file($source, $folder.$nama_file);
@@ -22,7 +22,7 @@
         ";
 
         echo "<meta http-equiv='refresh'
-              content='0; url=http://localhost/ecocash/page/admin.php?page=data-sampah'>";
+              content='0; url=http://localhost/Eco-Cash/page/admin.php?page=data-sampah'>";
   }else{
     echo "
         <script>
@@ -31,7 +31,7 @@
         ";
 
         echo "<meta http-equiv='refresh'
-              content='0; url=http://localhost/ecocash/page/admin.php?page=data-sampah'>";
+              content='0; url=http://localhost/Eco-Cash/page/admin.php?page=data-sampah'>";
   }
  }
  ?>

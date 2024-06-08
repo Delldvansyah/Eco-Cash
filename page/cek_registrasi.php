@@ -8,19 +8,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $alamat = mysqli_real_escape_string($conn, $_POST['alamat']);
     $telepon = mysqli_real_escape_string($conn, $_POST['telepon']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, password_hash($_POST['password'], PASSWORD_BCRYPT));
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $sql = "INSERT INTO nasabah (nin, nama, rt, alamat, telepon, email, password) VALUES ('$nin', '$nama', '$rt', '$alamat', '$telepon', '$email', '$password')";
+    // Cek apakah NIN sudah ada di database
+    $check_nin_query = "SELECT nin FROM nasabah WHERE nin='$nin'";
+    $check_nin_result = mysqli_query($conn, $check_nin_query);
 
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_num_rows($check_nin_result) > 0) {
         echo "
         <script>
-            alert('Registrasi berhasil!');
-            document.location.href ='login.php';
+            alert('NIN sudah terdaftar!');
+            document.location.href ='registrasi.php';
         </script>
         ";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $sql = "INSERT INTO nasabah (nin, nama, rt, alamat, telepon, email, password) VALUES ('$nin', '$nama', '$rt', '$alamat', '$telepon', '$email', '$password')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "
+            <script>
+                alert('Registrasi berhasil!');
+                document.location.href ='login.php';
+            </script>
+            ";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
     }
 
     mysqli_close($conn);

@@ -1,6 +1,6 @@
 <?php
  if (isset($_POST['simpan'])) {
-  require_once("http://localhost/Eco-Cash/system/config/koneksi.php");
+  require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
   $tanggal_setor = $_POST['tanggal_setor'];
   $nin = $_POST['nin'];
   $jenis_sampah = $_POST['jenis_sampah'];
@@ -14,7 +14,7 @@
   echo "<script>alert('Selamat berhasil input data!')</script>";
 
   echo "<meta http-equiv='refresh'
-   content='0; url=http://localhost/ecocash/page/admin.php?page=data-setor'>";
+   content='0; url=http://localhost/Eco-Cash/page/admin.php?page=data-setor'>";
 
  }
  ?>

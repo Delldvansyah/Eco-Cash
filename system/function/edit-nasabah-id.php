@@ -1,5 +1,5 @@
 <?php
-  require_once("http://localhost/Eco-Cash/system/system/config/koneksi.php");
+  require_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
 
  if (isset($_POST['simpan'])) {
   $id = $_POST['id'];
@@ -12,7 +12,7 @@
   $query = "UPDATE nasabah SET nama = '$nama', alamat = '$alamat', telepon = '$telepon', email = '$username', password = '$password' WHERE nin='".$id."' ";
   $queryact = mysqli_query($conn, $query);
   echo "<meta http-equiv='refresh'
-   content='0; url=http://localhost/ecocash/page/admin.php?page=data-nasabah-full'>";
+   content='0; url=http://localhost/Eco-Cash/page/admin.php?page=data-nasabah-full'>";
  }
 
 ?>
