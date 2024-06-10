@@ -78,10 +78,6 @@
         <button><i class="fa fa-print" aria-hidden="true"></i>Excel</button>
     </a>
 
-    <a target="_blank" href="http://localhost/Eco-Cash/system/function/print-sampah.php">
-        <button><i class="fa fa-print" aria-hidden="true"></i>Cetak</button>
-    </a>
-
     <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.min.js"></script>
     <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.dataTables.min.js"></script>
     <script>
