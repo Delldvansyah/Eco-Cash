@@ -54,7 +54,7 @@ a
         </li>
         <li style="list-style: none; display: inline"></li>
         <li>
-          <a href="#bar">Tim Kami</a>
+          <a href="#team">Tim Kami</a>
         </li>
         <li style="list-style: none; display: inline"></li>
         <li>
@@ -138,17 +138,64 @@ a
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src="asset/internal/js/index.js"></script>
 
-  <!--konten maps-->
+  <!-- konten tim kami -->
+<div id="team">
+  <section class="team">
+    <div class="container">
+      <div class="row">
+        <h1>Tim Kami</h1>
+        <p>Kenali tim yang bekerja keras untuk menjaga lingkungan kita bersih dan hijau.</p>
+      </div>
+      <div class="row mgt50px">
+        <div class="coloumn">
+          <div class="imgBox">
+            <img src="asset/internal/img/img-content/member1.jpg" alt="Member 1">
+          </div>
+          <div class="details">
+            <h3>Nama Anggota 1<br><span>Posisi Anggota 1</span></h3>
+          </div>
+        </div>
+        <div class="coloumn">
+          <div class="imgBox">
+            <img src="asset/internal/img/img-content/member2.jpg" alt="Member 2">
+          </div>
+          <div class="details">
+            <h3>Nama Anggota 2<br><span>Posisi Anggota 2</span></h3>
+          </div>
+        </div>
+        <div class="coloumn">
+          <div class="imgBox">
+            <img src="asset/internal/img/img-content/member3.jpg" alt="Member 3">
+          </div>
+          <div class="details">
+            <h3>Nama Anggota 3<br><span>Posisi Anggota 3</span></h3>
+          </div>
+        </div>
+        <div class="coloumn">
+          <div class="imgBox">
+            <img src="asset/internal/img/img-content/member4.jpg" alt="Member 4">
+          </div>
+          <div class="details">
+            <h3>Nama Anggota 4<br><span>Posisi Anggota 4</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-  <br>
-  <div id="bar">
-    <div class="row mgt50px">
-      <h1 align="center">Lokasi Bank Sampah</h1>
+<!-- konten maps -->
+<br>
+<div id="bar">
+  <div class="container">
+    <div class="row mgt0px">
+      <h1>Lokasi Bank Sampah</h1>
       <br>
       <br>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253292.43182522725!2d112.54787081074575!3d-7.2755896718054345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1717031936481!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253292.43182522725!2d112.54787081074575!3d-7.2755896718054345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf8381ac47f%3A0x3027a76e352be40!2sSurabaya%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1717031936481!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
+</div>
 
   <!--footer-->
   <footer class="footer-distributed">

@@ -64,22 +64,22 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
 
                 switch ($page) {
                     case 'data-nasabah':
-                        include "E:/xampp/htdocs/Eco-Cash/system/config/view-nasabah.php";
+                        include "E:/xampp/htdocs/Eco-Cash/system/function/view-nasabah.php";
                         break;
                     case 'data-sampah-n':
-                        include "E:/xampp/htdocs/Eco-Cash/system/config/view-sampah_n.php";
+                        include "E:/xampp/htdocs/Eco-Cash/system/function/view-sampah_n.php";
                         break;
                     case 'histori-setor':
-                        include "E:/xampp/htdocs/Eco-Cash/system/config/histori-setor.php";
+                        include "E:/xampp/htdocs/Eco-Cash/system/function/histori-setor.php";
                         break;
                     case 'histori-tarik':
-                        include "E:/xampp/htdocs/Eco-Cash/system/config/histori-tarik.php";
+                        include "E:/xampp/htdocs/Eco-Cash/system/function/histori-tarik.php";
                         break;
                     case 'data-report':
-                        include "E:/xampp/htdocs/Eco-Cash/system/config/view-report-n.php";
+                        include "E:/xampp/htdocs/Eco-Cash/system/function/view-report-n.php";
                         break;
                     case 'edit-nasabah':
-                        include "E:/xampp/htdocs/Eco-Cash/system/config/edit-nasabah.php";
+                        include "E:/xampp/htdocs/Eco-Cash/system/function/edit-nasabah.php";
                         break;          
                     default:
                         echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
