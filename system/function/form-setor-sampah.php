@@ -1,11 +1,6 @@
 <?php
-session_start();
 include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+session_start(); // Pastikan session_start() dipanggil untuk menggunakan session
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $jenis_sampah = $_POST['jenis_sampah'];
@@ -45,7 +40,7 @@ $jenis_sampah_result = mysqli_query($conn, $jenis_sampah_query);
         <?php } ?>
     </select>
 
-    <img id="gambar-sampah" src="" alt="Gambar Sampah">
+    <img id="gambar-sampah" src="" alt="Gambar Sampah" style="max-width: 200px; max-height: 200px;">
 
     <label for="berat">Berat (kg)</label>
     <input type="number" id="berat" name="berat" step="0.01" min="0" required>
@@ -59,7 +54,23 @@ $jenis_sampah_result = mysqli_query($conn, $jenis_sampah_query);
         var gambarSampah = document.getElementById("gambar-sampah");
         var gambarPath = "http://localhost/Eco-Cash/asset/internal/img/uploads/";
 
-        // Set gambar sesuai dengan jenis sampah yang dipilih
-        gambarSampah.src = gambarPath + jenisSampah.toLowerCase() + ".png";
+        // Coba muat gambar dengan ekstensi .jpg
+        var jpgImage = new Image();
+        jpgImage.src = gambarPath + jenisSampah.toLowerCase() + ".jpg";
+        jpgImage.onload = function() {
+            gambarSampah.src = jpgImage.src;
+        }
+        jpgImage.onerror = function() {
+            // Jika gambar .jpg tidak ada, coba muat gambar .png
+            var pngImage = new Image();
+            pngImage.src = gambarPath + jenisSampah.toLowerCase() + ".png";
+            pngImage.onload = function() {
+                gambarSampah.src = pngImage.src;
+            }
+            pngImage.onerror = function() {
+                // Jika tidak ada gambar, kosongkan src
+                gambarSampah.src = "";
+            }
+        }
     }
 </script>

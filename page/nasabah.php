@@ -63,16 +63,27 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
             margin-top: 20px;
         }
     </style>
-    <script>
-        function updateGambar() {
-            var jenisSampah = document.getElementById("jenis_sampah").value;
-            var gambarSampah = document.getElementById("gambar-sampah");
-            var gambarPath = "http://localhost/Eco-Cash/asset/internal/img/uploads/";
+<script>
+function updateGambar() {
+    var jenisSampah = document.getElementById("jenis_sampah").value;
+    var gambarSampah = document.getElementById("gambar-sampah");
+    var gambarPath = "http://localhost/Eco-Cash/asset/internal/img/uploads/";
 
-            // Ganti URL gambar sesuai dengan jenis sampah yang dipilih
-            gambarSampah.src = gambarPath + jenisSampah + ".png";
-        }
-    </script>
+    // Coba tampilkan gambar dengan ekstensi .jpg
+    gambarSampah.src = gambarPath + jenisSampah + ".jpg";
+    gambarSampah.onerror = function() {
+        // Jika gambar .jpg tidak ditemukan, coba tampilkan gambar .png
+        gambarSampah.src = gambarPath + jenisSampah + ".png";
+        gambarSampah.onerror = function() {
+            // Jika kedua gambar tidak ditemukan, tampilkan gambar default
+            gambarSampah.src = gambarPath + "default.png";
+        };
+    };
+}
+</script>
+
+
+
 </head>
 <body>
     <div class="sidebar">
