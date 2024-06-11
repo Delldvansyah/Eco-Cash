@@ -47,10 +47,6 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
             </li>
 
             <li>
-                <a href="admin.php?page=data-report"><span class="fa fa-table" aria-hidden="true"></span>Report Data</a>
-            </li>
-
-            <li>
                 <a href="logout.php"><span class="fa fa-sign-out" aria-hidden="true"></span>Logout</a>
             </li>
         </ul>
@@ -74,9 +70,6 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
                         break;
                     case 'histori-tarik':
                         include "E:/xampp/htdocs/Eco-Cash/system/function/histori-tarik.php";
-                        break;
-                    case 'data-report':
-                        include "E:/xampp/htdocs/Eco-Cash/system/function/view-report-n.php";
                         break;
                     case 'edit-nasabah':
                         include "E:/xampp/htdocs/Eco-Cash/system/function/edit-nasabah.php";

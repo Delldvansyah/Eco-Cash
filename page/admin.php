@@ -59,9 +59,6 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
                     <a href="admin.php?page=data-tarik"><span class="fa fa-handshake-o" aria-hidden="true"></span>Transaksi Tarik</a>
                 </li>
                 <li>
-                    <a href="admin.php?page=data-report"><span class="fa fa-line-chart" aria-hidden="true"></span>Grafik Monitoring</a>
-                </li>
-                <li>
                     <a href="logout.php"><span class="fa fa-sign-out" aria-hidden="true"></span>Logout</a>
                 </li>
             </ul>
@@ -117,9 +114,6 @@ include_once("E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php");
                                 break;
                             case 'data-tarik':
                                 include "E:/xampp/htdocs/Eco-Cash/system/function/view-tarik.php";
-                                break;
-                            case 'data-report':
-                                include "E:/xampp/htdocs/Eco-Cash/system/function/view-report.php";
                                 break;
                             case 'tambah-data-sampah':
                                 include "E:/xampp/htdocs/Eco-Cash/system/function/tambah-sampah.php";

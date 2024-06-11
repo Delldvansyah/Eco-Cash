@@ -58,7 +58,7 @@ a
         </li>
         <li style="list-style: none; display: inline"></li>
         <li>
-          <a href="#baz">Lokasi</a>
+          <a href="#bar">Lokasi</a>
         </li>
         <li style="list-style: none; display: inline"></li>
       </ul>
