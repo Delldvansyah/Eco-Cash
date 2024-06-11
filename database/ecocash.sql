@@ -100,15 +100,17 @@ INSERT INTO `sampah` (`jenis_sampah`, `satuan`, `harga`, `gambar`, `deskripsi`) 
 --
 
 CREATE TABLE `setor` (
-  `id_setor` int(5) NOT NULL,
+  `id_setor` int(5) NOT NULL AUTO_INCREMENT,
   `tanggal_setor` date NOT NULL,
   `nin` varchar(10) NOT NULL,
   `jenis_sampah` varchar(15) NOT NULL,
   `berat` int(4) NOT NULL,
   `harga` int(6) NOT NULL,
   `total` int(8) NOT NULL,
-  `nia` varchar(9) NOT NULL
+  `nia` varchar(9) NOT NULL,
+  PRIMARY KEY (`id_setor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 -- --------------------------------------------------------
 
