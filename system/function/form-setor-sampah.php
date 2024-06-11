@@ -19,8 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $harga = $harga_row['harga'];
     $total = $berat * $harga;
 
+    // Ambil NIA dari tabel nasabah
+    $nia_query = mysqli_query($conn, "SELECT nia FROM admin WHERE nia = '$user_id'");
+    $nia_row = mysqli_fetch_assoc($nia_query);
+    $nia = $nia_row['nia'];
+
     // Query untuk memasukkan data setor sampah
-    $query = "INSERT INTO setor (nin, jenis_sampah, berat, harga, total, tanggal_setor, nia) VALUES ('$user_id', '$jenis_sampah', '$berat', '$harga', '$total', '$tanggal_setor', 'NIA')";
+    $query = "INSERT INTO setor (nin, jenis_sampah, berat, harga, total, tanggal_setor, nia) VALUES ('$user_id', '$jenis_sampah', '$berat', '$harga', '$total', '$tanggal_setor', '$nia')";
     if (mysqli_query($conn, $query)) {
         echo "<script>alert('Data berhasil disimpan'); window.location='nasabah.php?page=histori-setor';</script>";
     } else {

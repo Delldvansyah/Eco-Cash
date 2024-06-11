@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2017 at 06:09 AM
--- Server version: 5.5.16
--- PHP Version: 7.1.9
+-- Waktu pembuatan: 11 Jun 2024 pada 22.40
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bsk09`
+-- Database: `ecocash`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,10 +34,10 @@ CREATE TABLE `admin` (
   `email` varchar(50) NOT NULL,
   `password` varchar(20) DEFAULT NULL,
   `level` enum('Master-admin','Admin') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`nia`, `nama`, `telepon`, `email`, `password`, `level`) VALUES
@@ -47,7 +46,7 @@ INSERT INTO `admin` (`nia`, `nama`, `telepon`, `email`, `password`, `level`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nasabah`
+-- Struktur dari tabel `nasabah`
 --
 
 CREATE TABLE `nasabah` (
@@ -60,10 +59,10 @@ CREATE TABLE `nasabah` (
   `password` varchar(20) NOT NULL,
   `saldo` int(8) DEFAULT NULL,
   `sampah` int(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `nasabah`
+-- Dumping data untuk tabel `nasabah`
 --
 
 INSERT INTO `nasabah` (`nin`, `nama`, `rt`, `alamat`, `telepon`, `email`, `password`, `saldo`, `sampah`) VALUES
@@ -73,7 +72,7 @@ INSERT INTO `nasabah` (`nin`, `nama`, `rt`, `alamat`, `telepon`, `email`, `passw
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sampah`
+-- Struktur dari tabel `sampah`
 --
 
 CREATE TABLE `sampah` (
@@ -82,10 +81,10 @@ CREATE TABLE `sampah` (
   `harga` int(5) NOT NULL,
   `gambar` varchar(150) NOT NULL,
   `deskripsi` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `sampah`
+-- Dumping data untuk tabel `sampah`
 --
 
 INSERT INTO `sampah` (`jenis_sampah`, `satuan`, `harga`, `gambar`, `deskripsi`) VALUES
@@ -96,26 +95,34 @@ INSERT INTO `sampah` (`jenis_sampah`, `satuan`, `harga`, `gambar`, `deskripsi`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setor`
+-- Struktur dari tabel `setor`
 --
 
 CREATE TABLE `setor` (
-  `id_setor` int(5) NOT NULL AUTO_INCREMENT,
+  `id_setor` int(5) NOT NULL,
   `tanggal_setor` date NOT NULL,
   `nin` varchar(10) NOT NULL,
   `jenis_sampah` varchar(15) NOT NULL,
   `berat` int(4) NOT NULL,
   `harga` int(6) NOT NULL,
   `total` int(8) NOT NULL,
-  `nia` varchar(9) NOT NULL,
-  PRIMARY KEY (`id_setor`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `nia` varchar(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data untuk tabel `setor`
+--
+
+INSERT INTO `setor` (`id_setor`, `tanggal_setor`, `nin`, `jenis_sampah`, `berat`, `harga`, `total`, `nia`) VALUES
+(1, '2024-06-11', 'Ihsmi ', 'HVS', 3, 9000, 0, 'NIA'),
+(2, '2024-06-11', 'Ihsmi ', 'kaleng', 5, 3000, 2000, 'NIA'),
+(3, '2024-06-11', 'Ihsmi ', 'kaleng', 2, 3000, 6000, ''),
+(4, '2024-06-11', 'Ihsmi ', 'Kardus', 2, 8000, 16000, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tarik`
+-- Struktur dari tabel `tarik`
 --
 
 CREATE TABLE `tarik` (
@@ -125,57 +132,89 @@ CREATE TABLE `tarik` (
   `saldo` int(7) NOT NULL,
   `jumlah_tarik` int(7) NOT NULL,
   `nia` varchar(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `tarik`
+--
+
+INSERT INTO `tarik` (`id_tarik`, `tanggal_tarik`, `nin`, `saldo`, `jumlah_tarik`, `nia`) VALUES
+(0, '2024-06-12', 'Ihsmi ', 32000, 10000, 'some_nia_'),
+(0, '2024-06-12', 'Ihsmi ', 34000, 10000, 'some_nia_');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tarik_tunai`
+--
+
+CREATE TABLE `tarik_tunai` (
+  `id_tarik` int(11) NOT NULL,
+  `nin` varchar(20) NOT NULL,
+  `jumlah` decimal(15,2) NOT NULL,
+  `tanggal_tarik` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tarik_tunai`
+--
+
+INSERT INTO `tarik_tunai` (`id_tarik`, `nin`, `jumlah`, `tanggal_tarik`) VALUES
+(1, 'Ihsmi ', 10.00, '2024-06-12 03:14:10'),
+(2, 'Ihsmi ', 10000.00, '2024-06-12 03:15:48'),
+(3, 'Ihsmi ', 10000.00, '2024-06-12 03:18:46'),
+(4, 'Ihsmi ', 10000.00, '2024-06-12 03:39:16'),
+(5, 'Ihsmi ', 10000.00, '2024-06-12 03:40:26');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`nia`);
 
 --
--- Indexes for table `nasabah`
+-- Indeks untuk tabel `nasabah`
 --
 ALTER TABLE `nasabah`
   ADD PRIMARY KEY (`nin`);
 
 --
--- Indexes for table `sampah`
+-- Indeks untuk tabel `sampah`
 --
 ALTER TABLE `sampah`
   ADD PRIMARY KEY (`jenis_sampah`);
 
 --
--- Indexes for table `setor`
+-- Indeks untuk tabel `setor`
 --
 ALTER TABLE `setor`
   ADD PRIMARY KEY (`id_setor`);
 
 --
--- Indexes for table `tarik`
+-- Indeks untuk tabel `tarik_tunai`
 --
-ALTER TABLE `tarik`
+ALTER TABLE `tarik_tunai`
   ADD PRIMARY KEY (`id_tarik`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `setor`
+-- AUTO_INCREMENT untuk tabel `setor`
 --
 ALTER TABLE `setor`
-  MODIFY `id_setor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_setor` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tarik`
+-- AUTO_INCREMENT untuk tabel `tarik_tunai`
 --
-ALTER TABLE `tarik`
-  MODIFY `id_tarik` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `tarik_tunai`
+  MODIFY `id_tarik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

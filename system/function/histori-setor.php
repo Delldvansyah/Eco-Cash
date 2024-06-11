@@ -24,6 +24,22 @@
 <body>
     <h2 style="font-size: 30px; color: #262626;">Histori Setor Nasabah</h2>
     <br>
+    <?php
+    include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
+
+    if (!isset($_SESSION['user_n'])) {
+        header("Location: login.php");
+        exit();
+    }
+
+    // Fetch current balance
+    $querySaldo = mysqli_query($conn, "SELECT SUM(total) as saldo FROM setor WHERE nin='" . $_SESSION['user_n'] . "'");
+    $rowSaldo = mysqli_fetch_assoc($querySaldo);
+    $saldoSaatIni = $rowSaldo['saldo'] ?? 0;
+    ?>
+
+    <label>Saldo Saat Ini: Rp. <?php echo number_format($saldoSaatIni, 2, ",", "."); ?></label>
+    <br>
     <table id="example" class="display" cellspacing="0" width="100%" border="0">
         <thead>
         <tr>
@@ -49,13 +65,6 @@
         </tfoot>
         <tbody>
         <?php
-        include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
-
-        if (!isset($_SESSION['user_n'])) {
-            header("Location: login.php");
-            exit();
-        }
-
         $no = 0;
         $query = mysqli_query($conn, "SELECT * FROM setor WHERE nin='" . $_SESSION['user_n'] . "' ORDER BY id_setor DESC");
         while ($row = mysqli_fetch_array($query)) {
@@ -90,13 +99,20 @@
 
         function tarikTunai() {
             var userId = <?php echo json_encode($_SESSION['user_n']); ?>;
-            if (confirm('Apakah Anda yakin ingin menarik tunai?')) {
-                $.post('http://localhost/Eco-Cash/system/function/tarik-tunai.php', { user_n: userId }, function(response) {
-                    alert(response.message);
-                    if (response.success) {
-                        location.reload();
-                    }
-                }, 'json');
+            var saldoSaatIni = <?php echo json_encode($saldoSaatIni); ?>;
+            var jumlahTarik = prompt('Saldo saat ini: Rp. ' + saldoSaatIni.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }) + '\nMasukkan jumlah yang ingin ditarik:');
+            
+            if (jumlahTarik !== null && jumlahTarik > 0 && jumlahTarik <= saldoSaatIni) {
+                if (confirm('Apakah Anda yakin ingin menarik tunai sebesar Rp. ' + parseFloat(jumlahTarik).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }) + '?')) {
+                    $.post('http://localhost/Eco-Cash/system/function/tarik-tunai.php', { user_n: userId, jumlah_tarik: jumlahTarik }, function(response) {
+                        alert(response.message);
+                        if (response.success) {
+                            location.reload();
+                        }
+                    }, 'json');
+                }
+            } else {
+                alert('Jumlah tarik tidak valid atau melebihi saldo saat ini.');
             }
         }
     </script>

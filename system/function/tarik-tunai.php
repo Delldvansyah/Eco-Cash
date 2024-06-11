@@ -1,37 +1,61 @@
 <?php
 include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
-header('Content-Type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_id = $_POST['user_id'];
+session_start();
+$response = array('success' => false, 'message' => 'Gagal menarik tunai');
 
-    // Hitung total saldo dari histori setor
-    $saldo_query = mysqli_query($conn, "SELECT SUM(total) AS saldo FROM setor WHERE nin='$user_id'");
-    $saldo_row = mysqli_fetch_assoc($saldo_query);
-    $saldo = $saldo_row['saldo'];
+if (isset($_POST['user_n']) && isset($_POST['jumlah_tarik'])) {
+    $user_n = $_POST['user_n'];
+    $jumlah_tarik = floatval($_POST['jumlah_tarik']);
 
-    if ($saldo <= 0) {
-        echo json_encode(['success' => false, 'message' => 'Saldo tidak mencukupi']);
-        exit();
-    }
+    // Fetch current balance
+    $querySaldo = mysqli_query($conn, "SELECT SUM(total) as saldo FROM setor WHERE nin='$user_n'");
+    $rowSaldo = mysqli_fetch_assoc($querySaldo);
+    $saldoSaatIni = $rowSaldo['saldo'] ?? 0;
 
-    // Jumlah tarik tunai (misalnya kita ambil semua saldo untuk penarikan tunai)
-    $jumlah_tarik = $saldo;
-    $tanggal_tarik = date('Y-m-d');
+    if ($jumlah_tarik > 0 && $jumlah_tarik <= $saldoSaatIni) {
+        // Insert into tarik_tunai table
+        $queryInsert = mysqli_query($conn, "INSERT INTO tarik_tunai (nin, jumlah, tanggal_tarik) VALUES ('$user_n', '$jumlah_tarik', NOW())");
 
-    // Kurangi saldo dari histori setor
-    $update_setor_query = "UPDATE setor SET total = 0 WHERE nin='$user_id'";
-    if (!mysqli_query($conn, $update_setor_query)) {
-        echo json_encode(['success' => false, 'message' => 'Gagal mengurangi saldo dari histori setor']);
-        exit();
-    }
+        if ($queryInsert) {
+            // Reduce saldo from setor table
+            $remaining = $jumlah_tarik;
+            $querySetor = mysqli_query($conn, "SELECT * FROM setor WHERE nin='$user_n' ORDER BY id_setor ASC");
 
-    // Masukkan data ke histori tarik
-    $query = "INSERT INTO tarik (nin, saldo, jumlah_tarik, tanggal_tarik, nia) VALUES ('$user_id', '$saldo', '$jumlah_tarik', '$tanggal_tarik', 'NIA')";
-    if (mysqli_query($conn, $query)) {
-        echo json_encode(['success' => true, 'message' => 'Penarikan tunai berhasil']);
+            while ($rowSetor = mysqli_fetch_assoc($querySetor)) {
+                $id_setor = $rowSetor['id_setor'];
+                $total = $rowSetor['total'];
+
+                if ($remaining <= 0) {
+                    break;
+                }
+
+                if ($total >= $remaining) {
+                    $newTotal = $total - $remaining;
+                    mysqli_query($conn, "UPDATE setor SET total = '$newTotal' WHERE id_setor='$id_setor'");
+                    $remaining = 0;
+                } else {
+                    mysqli_query($conn, "UPDATE setor SET total = 0 WHERE id_setor='$id_setor'");
+                    $remaining -= $total;
+                }
+            }
+
+            // Insert into tarik table for history
+            $queryTarik = mysqli_query($conn, "INSERT INTO tarik (nin, jumlah_tarik, saldo, tanggal_tarik, nia) VALUES ('$user_n', '$jumlah_tarik', '$saldoSaatIni', NOW(), 'some_nia_value')");
+
+            if ($queryTarik) {
+                $response['success'] = true;
+                $response['message'] = 'Penarikan tunai berhasil!';
+            } else {
+                $response['message'] = 'Gagal menyimpan histori penarikan.';
+            }
+        } else {
+            $response['message'] = 'Gagal menyimpan data penarikan.';
+        }
     } else {
-        echo json_encode(['success' => false, 'message' => 'Penarikan tunai gagal']);
+        $response['message'] = 'Jumlah tarik tidak valid atau melebihi saldo saat ini.';
     }
 }
+
+echo json_encode($response);
 ?>
