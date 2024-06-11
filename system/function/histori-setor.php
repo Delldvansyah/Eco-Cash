@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,11 +50,16 @@
         </tfoot>
         <tbody>
         <?php
+        session_start();
         include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
 
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: login.php");
+            exit();
+        }
 
         $no = 0;
-        $query = mysqli_query($conn, "SELECT * FROM setor WHERE nin='" . $_SESSION['user_n'] . "' ORDER BY id_setor DESC");
+        $query = mysqli_query($conn, "SELECT * FROM setor WHERE nin='" . $_SESSION['user_id'] . "' ORDER BY id_setor DESC");
         while ($row = mysqli_fetch_array($query)) {
             $no++;
         ?>
