@@ -47,6 +47,9 @@
         <?php
             include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
             $query = mysqli_query($conn, "SELECT * FROM setor ORDER BY id_setor ASC");
+            if (!$query) {
+                die('Query Error: ' . mysqli_error($conn));
+            }
             while($row = mysqli_fetch_assoc($query)) {
         ?>
             <tr align="center">
@@ -59,8 +62,8 @@
                 <td><?php echo "Rp. ".number_format($row['total'], 2, ",", ".")  ?></td>
                 <td><?php echo $row['nia'] ?></td>
                 <td>
-                    <a href="admin.php?page=edit-setor&id=<?php echo $row['id_setor'] ?>"><button><i class="fa fa-pencil"></i>edit</button></a>
-                    <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="http://localhost/Eco-Cash/system/function/delete-setor.php?id=<?php echo $row['id_setor'] ?>"><button><i class="fa fa-trash-o"></i>hapus</button></a>
+                    <a href="admin.php?page=edit-setor&id=<?php echo $row['id_setor'] ?>"><button>Edit</button></a>
+                    <a onclick="return confirm('Anda yakin ingin menghapus data ini?')" href="http://localhost/Eco-Cash/system/function/delete-setor.php?id=<?php echo $row['id_setor'] ?>"><button>Hapus</button></a>
                 </td>
             </tr>
         <?php
@@ -69,6 +72,8 @@
         </tbody>
     </table>
 
+    <!-- Tambahkan jQuery sebelum DataTables -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="http://localhost/Eco-Cash/datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
