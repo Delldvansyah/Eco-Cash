@@ -40,7 +40,9 @@ a
 
   <!--Navbar-->
   <header>
-    <a href="#">EcoCash</a>
+    <a href="index.php">
+      <img src="http://localhost/Eco-Cash/asset/internal/img/uploads/ECO-_CASh-removebg-preview.png" alt="Logo Eco Cash" style="height: 70px; padding-left: 20px;"> <!-- Ganti ukuran height dan padding-left sesuai kebutuhan -->
+    </a>
     <nav>
       <a href="#" id="menu-icon"></a>
       <ul id="top-menu">

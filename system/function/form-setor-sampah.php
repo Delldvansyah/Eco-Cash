@@ -1,6 +1,5 @@
-
 <?php
-session_start();
+
 include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
 
 if (!isset($_SESSION['user_n'])) {
@@ -46,7 +45,7 @@ $jenis_sampah_result = mysqli_query($conn, $jenis_sampah_query);
         <?php } ?>
     </select>
 
-    <img id="gambar-sampah" src="" alt="Gambar Sampah">
+    <img id="gambar-sampah" src="" alt="Gambar Sampah" style="display: none;">
 
     <label for="berat">Berat (kg)</label>
     <input type="number" id="berat" name="berat" step="0.01" min="0" required>
@@ -59,8 +58,23 @@ $jenis_sampah_result = mysqli_query($conn, $jenis_sampah_query);
         var jenisSampah = document.getElementById("jenis_sampah").value;
         var gambarSampah = document.getElementById("gambar-sampah");
         var gambarPath = "http://localhost/Eco-Cash/asset/internal/img/uploads/";
+        var extensions = ['.png', '.jpg', '.jpeg'];
 
-        // Set gambar sesuai dengan jenis sampah yang dipilih
-        gambarSampah.src = gambarPath + jenisSampah.toLowerCase() + ".png";
+        // Coba semua ekstensi gambar untuk jenis sampah yang dipilih
+        for (var i = 0; i < extensions.length; i++) {
+            var imgSrc = gambarPath + jenisSampah.toLowerCase() + extensions[i];
+            var img = new Image();
+            img.onload = function() {
+                gambarSampah.src = imgSrc;
+                gambarSampah.style.display = 'block';
+            };
+            img.onerror = function() {
+                gambarSampah.style.display = 'none';
+            };
+            img.src = imgSrc;
+            if (img.complete) {
+                break;
+            }
+        }
     }
 </script>

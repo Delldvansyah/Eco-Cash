@@ -37,7 +37,6 @@
         </tfoot>
         <tbody>
         <?php
-        session_start();
         include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
 
         if (!isset($_SESSION['user_n'])) {
