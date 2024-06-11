@@ -1,78 +1,49 @@
 <?php
-include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
 session_start();
+include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
 
-if (isset($_POST['login'])) {
-    $user = mysqli_real_escape_string($conn, $_POST['user']);
-    $pass = mysqli_real_escape_string($conn, $_POST['pass']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
 
-    if ($user == "" || $pass == "") {
-        echo "
-        <script>
-            alert('Username dan Password tidak boleh kosong!');
-            document.location.href ='login.php';
-        </script>
-        ";
+    // Query untuk memeriksa admin
+    $query_admin = mysqli_query($conn, "SELECT * FROM admin WHERE nia='$user' AND password='$pass'");
+    $data_admin = mysqli_fetch_assoc($query_admin);
+
+    // Query untuk memeriksa nasabah
+    $query_nasabah = mysqli_query($conn, "SELECT * FROM nasabah WHERE nin='$user' AND password='$pass'");
+    $data_nasabah = mysqli_fetch_assoc($query_nasabah);
+
+    if ($data_admin) {
+        // Set session admin
+        $_SESSION['level'] = $data_admin['level'];
+        $_SESSION['nama'] = $data_admin['nama'];
+        $_SESSION['email'] = $data_admin['email'];
+        $_SESSION['telepon'] = $data_admin['telepon'];
+        $_SESSION['nia'] = $data_admin['nia'];
+
+        // Redirect ke halaman admin
+        header("Location: admin.php");
         exit();
-    }
+    } elseif ($data_nasabah) {
+        // Set session nasabah
+        $_SESSION['user_n'] = $data_nasabah['nama'];
+        $_SESSION['email_n'] = $data_nasabah['email'];
+        $_SESSION['pass_n'] = $data_nasabah['password'];
+        $_SESSION['telepon_n'] = $data_nasabah['telepon'];
+        $_SESSION['nin'] = $data_nasabah['nin'];
+        $_SESSION['rt'] = $data_nasabah['rt'];
+        $_SESSION['alamat'] = $data_nasabah['alamat'];
+        $_SESSION['saldo'] = $data_nasabah['saldo'];
+        $_SESSION['sampah'] = $data_nasabah['sampah'];
 
-    // Check admin
-    $data_admin = mysqli_query($conn, "SELECT * FROM admin WHERE nia = '$user' AND password = '$pass'");
-    if (!$data_admin) {
-        die("Query error: " . mysqli_error($conn));
-    }
-    $cek_admin = mysqli_num_rows($data_admin);
-    $a = mysqli_fetch_array($data_admin);
-
-    // Check nasabah
-    $data_nasabah = mysqli_query($conn, "SELECT * FROM nasabah WHERE nin = '$user' AND password = '$pass'");
-    if (!$data_nasabah) {
-        die("Query error: " . mysqli_error($conn));
-    }
-    $cek_user = mysqli_num_rows($data_nasabah);
-    $n = mysqli_fetch_array($data_nasabah);
-
-    if ($cek_admin > 0) {
-        $_SESSION['level'] = $a['level'];
-        $_SESSION['nama'] = $a['nama'];
-        $_SESSION['email'] = $a['email'];
-        $_SESSION['telepon'] = $a['telepon'];
-        $_SESSION['nia'] = $a['nia'];
-        echo "
-        <script>
-            alert('Selamat Anda berhasil login!');
-            document.location.href ='admin.php';
-        </script>
-        ";
-        exit();
-    } else if ($cek_user > 0) {
-        $_SESSION['user_n'] = $n['nama']; // Pastikan user_n diinisialisasi
-        $_SESSION['email_n'] = $n['email'];
-        $_SESSION['pass_n'] = $n['password'];
-        $_SESSION['telepon_n'] = $n['telepon'];
-        $_SESSION['nin'] = $n['nin'];
-        $_SESSION['rt'] = $n['rt'];
-        $_SESSION['alamat'] = $n['alamat'];
-        $_SESSION['saldo'] = $n['saldo'];
-        $_SESSION['sampah'] = $n['sampah'];
-        echo "
-        <script>
-            alert('Selamat Anda berhasil login!');
-            document.location.href ='nasabah.php';
-        </script>
-        ";
+        // Redirect ke halaman nasabah
+        header("Location: nasabah.php");
         exit();
     } else {
-        echo "
-        <script>
-            alert('Maaf username dan password tidak valid!');
-            document.location.href ='login.php';
-        </script>
-        ";
-        exit();
+        echo "<script>alert('Nomor induk atau password salah'); window.location='login.php';</script>";
     }
 } else {
-    header('location:login.php');
-    exit();
+    echo "<script>alert('Metode tidak diizinkan'); window.location='login.php';</script>";
 }
 ?>

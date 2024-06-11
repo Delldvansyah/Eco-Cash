@@ -49,8 +49,13 @@
         </tfoot>
         <tbody>
         <?php
+        session_start();
         include 'E:/xampp/htdocs/Eco-Cash/system/config/koneksi.php';
 
+        if (!isset($_SESSION['user_n'])) {
+            header("Location: login.php");
+            exit();
+        }
 
         $no = 0;
         $query = mysqli_query($conn, "SELECT * FROM setor WHERE nin='" . $_SESSION['user_n'] . "' ORDER BY id_setor DESC");
@@ -85,9 +90,9 @@
         });
 
         function tarikTunai() {
-            var userId = <?php echo json_encode($_SESSION['user_id']); ?>;
+            var userId = <?php echo json_encode($_SESSION['user_n']); ?>;
             if (confirm('Apakah Anda yakin ingin menarik tunai?')) {
-                $.post('http://localhost/Eco-Cash/system/function/tarik-tunai.php', { user_id: userId }, function(response) {
+                $.post('http://localhost/Eco-Cash/system/function/tarik-tunai.php', { user_n: userId }, function(response) {
                     alert(response.message);
                     if (response.success) {
                         location.reload();
